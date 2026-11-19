@@ -365,9 +365,35 @@ footer .fline{border-top:1px solid rgba(255,255,255,.16);padding-top:22px;displa
   .m-inner{padding:28px 34px 40px}
   .m-tiles{grid-template-columns:repeat(4,1fr)}
 }
+
+/* ---------- the bird ---------- */
+#birdFly{position:fixed;left:0;top:0;z-index:45;pointer-events:none;width:clamp(58px,12vw,96px);opacity:0;will-change:transform,opacity}
+#birdFly svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 6px 5px rgba(0,0,0,.22))}
+#birdFly .wing{transform-origin:58px 42px;animation:birdflap .46s ease-in-out infinite}
+#birdFly .wing.back{animation-delay:-.07s}
+#birdFly.glide .wing{animation-play-state:paused;transform:rotate(8deg)}
+#birdFly .bob{animation:birdbob .46s ease-in-out infinite}
+#birdFly.glide .bob{animation-play-state:paused}
+@keyframes birdflap{0%,100%{transform:rotate(-30deg)}50%{transform:rotate(34deg)}}
+@keyframes birdbob{0%,100%{transform:translateY(1.5px)}50%{transform:translateY(-2px)}}
+@media(prefers-reduced-motion:reduce){#birdFly{display:none}}
 </style>
 </head>
 <body>
+<div id="birdFly" aria-hidden="true">
+  <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" focusable="false">
+    <g class="bob">
+      <path class="wing back" d="M58 40 C48 12 26 6 12 10 C26 22 38 34 52 46 Z" fill="#CDBF9E" stroke="#0B3A2B" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M42 44 L12 36 C10 40 10 50 12 54 L40 50 Z" fill="#BE1430" stroke="#0B3A2B" stroke-width="2" stroke-linejoin="round"/>
+      <ellipse cx="62" cy="44" rx="25" ry="11.5" fill="#F4EEDD" stroke="#0B3A2B" stroke-width="2"/>
+      <circle cx="86" cy="38" r="8.5" fill="#F4EEDD" stroke="#0B3A2B" stroke-width="2"/>
+      <path d="M93 36 L105 40.5 L93 43.5 Z" fill="#BE1430" stroke="#0B3A2B" stroke-width="1.6" stroke-linejoin="round"/>
+      <circle cx="88.5" cy="36" r="1.8" fill="#0B3A2B"/>
+      <path class="wing" d="M60 40 C52 10 30 2 14 6 C28 20 42 32 56 47 Z" fill="#E8DFC8" stroke="#0B3A2B" stroke-width="2" stroke-linejoin="round"/>
+    </g>
+  </svg>
+</div>
+
 
 <nav class="nav">
   <div class="nav-in">
@@ -473,7 +499,10 @@ footer .fline{border-top:1px solid rgba(255,255,255,.16);padding-top:22px;displa
 <p class="bn">তারপর আমি জানালাম, পৃথিবীর যে চারজন মানুষের সঙ্গে দেখা করার ইচ্ছা, তাঁদের একজন তিনি, আর বাকিদের মধ্যে দুজন আর বেঁচে নেই। স্যার জানতে চাইলেন কারা। রানি এলিজাবেথ আর মাইকেল জ্যাকসনের নাম শুনে মজা করে বললেন, “আয় হায়, তুমি তো আমাকে শেষ করে দিলা! রানি এলিজাবেথ, মাইকেল জ্যাকসনের পরে তো আমি!” আমরা দুজনেই হাসলাম।</p>
 <blockquote class="m-q q-gold bn"><span>মজার মুহূর্ত</span>“আয় হায়, তুমি তো আমাকে শেষ করে দিলা! রানি এলিজাবেথ, মাইকেল জ্যাকসনের পরে তো আমি!”</blockquote>
 <p class="bn">ফ্যাসিস্ট সরকারের আমলের সন্ত্রাস, আগুন, ককটেল, এসব নিয়েও কথা হলো। আমি তাঁকে জানালাম, আওয়ামী লীগ সরকারের সময় আমার দাদার ফেসবুক আইডি আমরা সীমিত করে রাখতাম। দাদা সরকারের বিরুদ্ধে কিছু পোস্ট করলে সেগুলো যেন প্রকাশ না হয়, সেজন্য আইডি আমার কাছেই থাকত। স্যার শুনে হাসলেন এবং বললেন, দেশে কীভাবে জুলুম হয়েছে।</p>
+<p class="bn">কথা প্রসঙ্গে স্যারের ছোটবেলার বন্ধু বেলাল বেগের কথা তুললাম। আমার জানামতে তিনি একসময় স্যারের খুব ঘনিষ্ঠ বন্ধু ছিলেন, কিন্তু এখন আওয়ামী লীগের সমর্থক হয়ে স্যারকে গালমন্দ করেন। স্যার আফসোস করে বললেন, কত স্মৃতি তাঁর সঙ্গে, সেও এখন গালমন্দ করছে; রাজনীতি মানুষকে অন্ধ করে তোলে। আমি বললাম, বাংলাদেশে আমি এমন কোনো রাজনৈতিক দল দেখিনি যারা আত্মসমালোচনা করে বা নিজের ভুল দেখে। স্যার বললেন, ঠিক।</p>
+<p class="bn">আমি আমার ব্যক্তিগত মতও জানালাম যে এ দেশে মানবাধিকার দেখিয়ে লাভ নেই, ওদের ক্রসফায়ারের মুখে রাখা দরকার। আরও বললাম, স্যার, আপনি এত কিছু করেছেন, তবুও অনেকে আপনাকে নিয়ে কটু কথা বলে, এটা ঠিক নয়। স্যার বললেন, কী আর করা, আমি দেশের জন্য করে যাচ্ছি, ওদের কাছ থেকে কোনো প্রত্যাশা রাখি না।</p>
 <p class="bn">সব মিলিয়ে স্যার আমাকে প্রায় ৩৫ থেকে ৪০ মিনিট সময় দিলেন। গ্রামীণ ব্যাংক, দেশের নানা বিষয়, আমার পরিবার আর বিশ্ববিদ্যালয়ের কথা, অনেক গল্প হলো। তিনি এত সহজ, এত বন্ধুসুলভ, এত মাটির মানুষ ছিলেন যে আমি ভাবতেই পারিনি। এত বড় মাপের একজন মানুষ, যাঁর আমার সঙ্গে দেখা না করলেও কিছু যায় আসে না, তিনি আমাকে এমন সম্মান দিলেন যা আমার কল্পনার বাইরে ছিল।</p>
+<p class="bn">ব্র্যাকের কিছু শিক্ষকের কাছে আমি অনেক সময় সামান্য সম্মানও পাই না। ফ্যাকাল্টি রুমে গেলে মুখ তুলেও কথা বলেন না, “যাও যাও” বলে তাচ্ছিল্য করেন। সেখানে স্যার আমাকে যে সম্মান দিয়েছেন, তা আমার কাছে অভাবনীয়।</p>
 <p class="bn">শেষে আমি স্যারের সঙ্গে একটি ছবি তুলতে চাইলাম। স্যার জিজ্ঞেস করলেন, “ছবি তুমি তুলবে, নাকি কাউকে ডাকব?” আমি বললাম, স্যার, বই হাতে থাকবে, তাই কাউকে ডাকলে ভালো হয়। তখন স্যার কলিং বেল চাপলেন, সাব্বির ভাই এসে আমাদের ছবি তুলে দিলেন। স্যার কার্ডটি নিয়ে বললেন, “খুব সুন্দর।” আমি লামিয়া ম্যামকেও বই দিতে চাই জানালে স্যার বললেন, “ম্যাম তো পাশেই আছেন, সাব্বির, ওকে নিয়ে যাও।” এভাবেই স্যারের কাছ থেকে বিদায় নিলাম।</p>
 
 <h4 class="bn">বিদায়</h4>
@@ -491,6 +520,7 @@ footer .fline{border-top:1px solid rgba(255,255,255,.16);padding-top:22px;displa
 <div class="m-author bn">
   <b>আহমেদ রিজভান আলরাজী</b>
   <p>School of Pharmacy, Brac University</p>
+  <p>Student ID: 23346092</p>
   <p>কেন্দ্রীয় সেল সমন্বয়কারী (প্রাইভেট বিশ্ববিদ্যালয় সেল), বৈষম্যবিরোধী ছাত্র আন্দোলন কেন্দ্রীয় কমিটি</p>
   <p>কেন্দ্রীয় সংগঠক, প্রাইভেট বিশ্ববিদ্যালয় ঐক্য</p>
 </div>
@@ -545,7 +575,10 @@ footer .fline{border-top:1px solid rgba(255,255,255,.16);padding-top:22px;displa
 <p>Then I told him that he was one of the four people in the world I wished to meet, and that two of the others were no longer alive. Sir wanted to know who they were. Hearing the names of Queen Elizabeth and Michael Jackson, he joked, “Oh dear, you have finished me off! After Queen Elizabeth and Michael Jackson, it is me!” We both laughed.</p>
 <blockquote class="m-q q-gold"><span>A light moment</span>“Oh dear, you have finished me off! After Queen Elizabeth and Michael Jackson, it is me!”</blockquote>
 <p>We also talked about the terror, arson and cocktail bombs of the fascist government’s era. I told him that during the Awami League government we kept my grandfather’s Facebook ID restricted. If my grandfather posted anything against the government, the ID stayed with me so that those posts would not be published. Sir smiled on hearing this and said how much oppression there had been in the country.</p>
+<p>In passing I brought up Sir’s childhood friend Belal Beg. To my knowledge he was once a very close friend of Sir, but now, as a supporter of the Awami League, he abuses Sir. Sir said with regret, “So many memories with him, and now he abuses me too; politics blinds people.” I said I had not seen any political party in Bangladesh that practises self-criticism or sees its own mistakes. Sir said, “Right.”</p>
+<p>I also shared my personal view that in this country there is no use in showing human rights, and that they should be put in the line of crossfire. I added, “Sir, you have done so much, yet many speak ill of you; that is not right.” Sir said, “What can one do? I keep working for the country, and I expect nothing from them.”</p>
 <p>In all, Sir gave me about 35 to 40 minutes. We talked about Grameen Bank, various issues of the country, my family and my university, and there were many stories. He was so simple, so friendly, so down to earth, more than I could have imagined. A man of such stature, who would lose nothing by not meeting me, gave me a respect beyond my imagination.</p>
+<p>At times, some faculty members at BRAC do not give me even basic respect. If I go to the faculty room, they do not look up to speak, and wave me off with “go, go”. Against that, the respect Sir gave me was beyond belief to me.</p>
 <p>At the end I wanted to take a photo with Sir. He asked, “Will you take it yourself, or shall I call someone?” I said, “Sir, the book will be in my hands, so it would be better to call someone.” Sir then pressed the calling bell, and Shabbir Bhai came and took our photo. Sir took the card and said, “Very beautiful.” When I said I also wanted to give a book to Lamia Ma’am, Sir said, “Ma’am is right next door. Shabbir, take him to her.” In this way I took my leave from Sir.</p>
 
 <h4>Farewell</h4>
@@ -563,6 +596,7 @@ footer .fline{border-top:1px solid rgba(255,255,255,.16);padding-top:22px;displa
 <div class="m-author">
   <b>Ahmed Rizvan Alrazi</b>
   <p>School of Pharmacy, Brac University</p>
+  <p>Student ID: 23346092</p>
   <p>Central Cell Coordinator (Private University Cell), Central Committee of the Anti-Discrimination Student Movement</p>
   <p>Central Organiser, Private University Oikya</p>
 </div>
@@ -910,6 +944,43 @@ footer .fline{border-top:1px solid rgba(255,255,255,.16);padding-top:22px;displa
     });
   });
   show('bn');
+})();
+</script>
+
+<script>
+(function(){
+  var el=document.getElementById('birdFly');
+  if(!el || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  var dir=1, glideT=null;
+  function rand(a,b){return a+Math.random()*(b-a)}
+  function glideLoop(){
+    glideT=setTimeout(function(){
+      el.classList.add('glide');
+      setTimeout(function(){el.classList.remove('glide');glideLoop();}, rand(700,1300));
+    }, rand(2500,4500));
+  }
+  function fly(){
+    var W=innerWidth,H=innerHeight,bw=el.offsetWidth,dur=rand(13000,17000),
+        base=H*rand(.16,.5),amp=H*rand(.05,.1),freq=rand(1.4,2.2),rise=H*rand(.02,.1),t0=null;
+    el.style.opacity=1; glideLoop();
+    function step(ts){
+      if(t0===null) t0=ts;
+      var p=(ts-t0)/dur;
+      if(p>=1){ el.style.opacity=0; clearTimeout(glideT); el.classList.remove('glide'); dir=-dir; schedule(rand(30000,50000)); return; }
+      var span=W+2*bw, x=dir>0 ? -bw+span*p : W+bw-span*p,
+          y=base+Math.sin(p*Math.PI*2*freq)*amp-p*rise,
+          dxp=span*dir, dyp=Math.cos(p*Math.PI*2*freq)*amp*Math.PI*2*freq-rise,
+          a=(dir>0?Math.atan2(dyp,dxp):Math.atan2(-dyp,-dxp))*180/Math.PI;
+      a=Math.max(-24,Math.min(24,a));
+      var fade=Math.min(1,p*14,(1-p)*14);
+      el.style.opacity=fade;
+      el.style.transform='translate('+x.toFixed(1)+'px,'+y.toFixed(1)+'px) rotate('+a.toFixed(1)+'deg) scaleX('+dir+')';
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  function schedule(ms){ setTimeout(function(){ if(document.hidden){ schedule(4000); } else { fly(); } }, ms); }
+  if(document.readyState==='complete') schedule(900); else addEventListener('load',function(){schedule(900)});
 })();
 </script>
 </body>
